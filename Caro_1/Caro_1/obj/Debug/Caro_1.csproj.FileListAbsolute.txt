@@ -1,0 +1,13 @@
+c:\users\win7\documents\visual studio 2013\Projects\Caro_1\Caro_1\bin\Debug\Caro_1.exe.config
+c:\users\win7\documents\visual studio 2013\Projects\Caro_1\Caro_1\bin\Debug\Caro_1.exe
+c:\users\win7\documents\visual studio 2013\Projects\Caro_1\Caro_1\bin\Debug\Caro_1.pdb
+c:\users\win7\documents\visual studio 2013\Projects\Caro_1\Caro_1\obj\Debug\Caro_1.csprojResolveAssemblyReference.cache
+c:\users\win7\documents\visual studio 2013\Projects\Caro_1\Caro_1\obj\Debug\MainWindow.baml
+c:\users\win7\documents\visual studio 2013\Projects\Caro_1\Caro_1\obj\Debug\MainWindow.g.cs
+c:\users\win7\documents\visual studio 2013\Projects\Caro_1\Caro_1\obj\Debug\App.g.cs
+c:\users\win7\documents\visual studio 2013\Projects\Caro_1\Caro_1\obj\Debug\Caro_1_MarkupCompile.cache
+c:\users\win7\documents\visual studio 2013\Projects\Caro_1\Caro_1\obj\Debug\Caro_1.g.resources
+c:\users\win7\documents\visual studio 2013\Projects\Caro_1\Caro_1\obj\Debug\Caro_1.Properties.Resources.resources
+c:\users\win7\documents\visual studio 2013\Projects\Caro_1\Caro_1\obj\Debug\Caro_1.csproj.GenerateResource.Cache
+c:\users\win7\documents\visual studio 2013\Projects\Caro_1\Caro_1\obj\Debug\Caro_1.exe
+c:\users\win7\documents\visual studio 2013\Projects\Caro_1\Caro_1\obj\Debug\Caro_1.pdb
