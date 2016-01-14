@@ -15,9 +15,10 @@ namespace Caro
     {
         //public event EventHandler CellClick;
         #region properties
-
+        public bool Human=true;
+       // Human = 
         //const 
-            int CELL_SIZE = 25;
+           int CELL_SIZE = 25;
         Image _ImgX;
         Image _ImgO;
         CaroBoard _board;
@@ -84,11 +85,18 @@ namespace Caro
         /// <param name="playerSymbol">Quân người chơi (x-o)</param>
         /// <param name="conputerAI">Độ sâu khi máy tính toán</param>
         /// 
-        public void NewGame1(bool playerFirst,char player2)
+        public void NewGame1(bool playerFirst,char player2, bool human)
         {
+            if (!GameOver)
+            {
+                if (MessageBox.Show("You lose this round?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
+                    return;
+                ComputerScore += 1;
+                UpdateMessage();
+            }
             step = new List<Step>();
             PlayerSymbol = player2 == 'x' ? 'x' : 'o';
-            _board = new CaroBoard(19, zingLaw);
+            _board = new CaroBoard(19, zingLaw,human);
             _board.PrevMove.Set(-1, -1);
             win = new int[5];
             CurrIndex = -1;
@@ -106,7 +114,7 @@ namespace Caro
                 _board.XPlaying = player2 == 'x' ? false : true;
                 _board.CurrMove.Set(_board.size / 2, _board.size / 2);
                 _board.cells[_board.size / 2, _board.size / 2] = player2 == 'x' ? 'o' : 'x';
-                SwithchPlayer();
+                SwithchPlayer1();
             }
         }
         public void NewGame(bool playerFirst, char playerSymbol, int computerAI)
@@ -122,7 +130,7 @@ namespace Caro
             ComputerAI = computerAI;
             step = new List<Step>();
             PlayerSymbol = playerSymbol=='x'?'x':'o';
-            _board = new CaroBoard(19,zingLaw);
+            _board = new CaroBoard(19,zingLaw,false);
             _board.PrevMove.Set(-1, -1);
             win = new int[5];
            // this.MaximumSize = new Size(_board.size * CELL_SIZE + 1, (_board.size + 1) * CELL_SIZE + 1);
@@ -148,9 +156,9 @@ namespace Caro
         }
         protected override void OnMouseDown(MouseEventArgs e)
         {
-            if (!GameOver && _board.CurrentPlayer==PlayerSymbol)
+            if (!GameOver && _board.CurrentPlayer == PlayerSymbol)
             {
-                int i = (int)(e.Y / CELL_SIZE)-1;
+                int i = (int)(e.Y / CELL_SIZE) - 1;
                 int j = (int)(e.X / CELL_SIZE);
                 //MessageBox.Show("i= " + i + ", j= " + j);
                 if (i >= _board.size || i < 0 || j >= _board.size || j < 0) return;
@@ -161,17 +169,37 @@ namespace Caro
                     _board.cells[i, j] = _board.XPlaying ? 'x' : 'o';
                     UpdateGraphic(_board.CurrMove);
                     UpdateGraphic(_board.PrevMove);
-                    SwithchPlayer();
+                    if (_board.Human)
+                        SwithchPlayer1();
+                    else
+                        SwithchPlayer();
                 }
-//                 else
-//                 {
-//                     _board.cells[i, j] = ' ';
-//                     UpdateGraphic(_board.CurrMove);
-//                 }
-                //Invalidate();
             }
-            base.OnMouseDown(e);
-        }
+                else
+                {
+                    int i = (int)(e.Y / CELL_SIZE) - 1;
+                    int j = (int)(e.X / CELL_SIZE);
+                    //MessageBox.Show("i= " + i + ", j= " + j);
+                    if (i >= _board.size || i < 0 || j >= _board.size || j < 0) return;
+                    if (_board.cells[i, j] == ' ')
+                    {
+                        _board.PrevMove.Set(_board.CurrMove);
+                        _board.CurrMove.Set(i, j);
+                        _board.cells[i, j] = _board.XPlaying ? 'x' : 'o';
+                        UpdateGraphic(_board.CurrMove);
+                        UpdateGraphic(_board.PrevMove);
+
+                        if (_board.Human)
+                            SwithchPlayer1();
+                        else
+                            SwithchPlayer();
+                    }
+                    //Invalidate();
+                }
+                base.OnMouseDown(e);
+            }
+        
+        
         protected override void  OnMouseMove(MouseEventArgs e)
         {
             int i = (int)((e.X) / CELL_SIZE)+1;
@@ -258,6 +286,38 @@ namespace Caro
             CaroCurrentMove.Text=(_board.CurrMove.x+1)+":"+(_board.CurrMove.y+1);
             CaroScore.Text = PlayerScore + ":" + ComputerScore;
         }
+        public void SwithchPlayer1()
+        {
+            //EchoBoard();
+            win = _board.IsGame0ver;
+            GameOver = win[0] >= 5 ? true : false;
+            while (step.Count - 1 > CurrIndex) step.RemoveAt(step.Count - 1);
+            step.Add(new Step(_board.CurrMove, _board.CurrentPlayer));
+            CurrIndex++;
+            //MessageBox.Show(step.Count.ToString());
+            _board.XPlaying = !_board.XPlaying;
+            UpdateMessage();
+            if (GameOver)
+            {
+                timer2.Stop();
+                Invalidate();
+                if (_board.CurrentPlayer != PlayerSymbol)
+                    PlayerScore++;
+                else
+                    ComputerScore++;
+                UpdateMessage();
+                return;
+            }
+
+            if (_board.CurrentPlayer != PlayerSymbol)
+            {
+                processing = true;
+               // timer1.Start();
+               // Thread th = new Thread(Computer);
+              //  th.Start();
+            }
+
+        }
         public void SwithchPlayer()
         {
             //EchoBoard();
@@ -343,7 +403,7 @@ namespace Caro
 //             else p = Pens.DarkViolet;
             e.Graphics.DrawRectangle(p, new Rectangle(_board.CurrMove.y * CELL_SIZE, (_board.CurrMove.x+1) * CELL_SIZE, CELL_SIZE, CELL_SIZE));
             //e.Graphics.DrawRectangle(p, new Rectangle(_board.CurrMove.y * CELL_SIZE-1, _board.CurrMove.x * CELL_SIZE-1, CELL_SIZE+2, CELL_SIZE+2));
-            if (processing) e.Graphics.DrawImage(_ImgThink, ai.currp.y * CELL_SIZE, (ai.currp.x +1)* CELL_SIZE);
+            if (processing && !_board.Human) e.Graphics.DrawImage(_ImgThink, ai.currp.y * CELL_SIZE, (ai.currp.x +1)* CELL_SIZE);
             if (win[0]>=5&&GameOver)
             {
                 //MessageBox.Show(" " + kq[0]+ " " + kq[2]*CELL_SIZE + " " + kq[1]*CELL_SIZE + " " + kq[4]*CELL_SIZE + " " + kq[3]*CELL_SIZE);
@@ -355,7 +415,7 @@ namespace Caro
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(!(ai.prevp.x==ai.currp.x&&ai.prevp.y==ai.currp.y))
+            if(!(ai.prevp.x==ai.currp.x&&ai.prevp.y==ai.currp.y) && !_board.Human)
             {
                 UpdateGr4phic(ai.currp);
                 UpdateGr4phic(ai.prevp);
@@ -402,7 +462,7 @@ namespace Caro
             char playerSymbol = (char)GameData.Rows[0]["PlayerSymbol"];
 
             CurrIndex = step.Count - 1;
-            _board = new CaroBoard(19,zingLaw);
+            _board = new CaroBoard(19,zingLaw,false);
             for (int i = 0; i < step.Count; i++)
                 _board.cells[step[i].p.x, step[i].p.y] = step[i].CurrentPlayer == playerSymbol ? PlayerSymbol : ComputerSymbol;
 

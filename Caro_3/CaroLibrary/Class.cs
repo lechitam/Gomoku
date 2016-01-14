@@ -4,6 +4,7 @@ using System.Text;
 
 namespace CaroLibrary
 {
+    //public bool Human();
     public class Position
     {
         public int x;

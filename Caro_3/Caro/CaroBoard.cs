@@ -11,6 +11,7 @@ namespace Caro
     {
         public char[,] cells;
         public bool XPlaying;
+        public bool Human=false;
         public char CurrentPlayer
         {
             get
@@ -180,12 +181,13 @@ namespace Caro
                 for (int j = 0; j < n; j++)
                     cells[i, j] =' ';
         }
-        public CaroBoard(int n,bool zingLaw)
+        public CaroBoard(int n,bool zingLaw,bool human)
         {
             this.zingLaw = zingLaw;
+            this.Human = human;
             New(n);
         }
-        public CaroBoard():this(14,false)
+        public CaroBoard():this(14,false,false)
         {
         }
     }

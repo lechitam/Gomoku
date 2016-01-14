@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+using CaroLibrary;
 namespace Caro
 {
 
@@ -13,8 +13,10 @@ namespace Caro
     {
         private DataTable optionsTable;
         private bool cursorChanged=false;
-        public string playerName = "Player Name";
+        public string playerName = "Player";
       // CELL_SIZE = 
+        public bool Human = false;
+        
         
         public Main()
         {
@@ -107,8 +109,11 @@ namespace Caro
                 bool playerFirst = op_comboFirstPlayer.Text == "Player" ? true : false;
                 char playerSymbol = op_comboPlayerSymbol.Text == "X" ? 'x' : 'o';
                 int level = op_trackComputerLevel.Value;
-                board.NewGame1(playerFirst, playerSymbol);
-               // board.NewGame(playerFirst, playerSymbol, level);
+                board.Human=Human;
+                if(board.Human)
+                board.NewGame1(playerFirst, playerSymbol,Human);
+                else
+                board.NewGame(playerFirst, playerSymbol, level);
 
                 //MessageBox.Show("hi");
 
@@ -117,7 +122,7 @@ namespace Caro
             {
                 //MessageBox.Show(ex.Message);
                // board.NewGame(true, 'x',3);
-                board.NewGame1(true, 'x');
+                board.NewGame1(true, 'x',false);
             }
             timer1.Start();
         }
@@ -137,7 +142,7 @@ namespace Caro
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (board.processing)
+            if (board.processing && !board.Human)
             {
                 if (!cursorChanged)
                 {
@@ -288,6 +293,16 @@ namespace Caro
         private void btnChange_Click(object sender, EventArgs e)
         {
             playerName = tbName.Text;
+        }
+
+        private void withHumanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Human = true;
+        }
+
+        private void withComputerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Human = false;
         }
 
        

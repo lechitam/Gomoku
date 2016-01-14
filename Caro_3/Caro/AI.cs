@@ -338,7 +338,8 @@ namespace Caro
         {
             currp.Set(-1, -1);
             prevp.Set(-1, -1);
-            CaroBoard b = new CaroBoard(bb.size,zingLaw);
+            bool F = false;
+            CaroBoard b = new CaroBoard(bb.size,zingLaw,F);
             for (int i = 0; i < n; i++)
                 for (int j = 0; j < n; j++)
                     b.cells[i, j] = bb.cells[i, j];

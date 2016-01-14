@@ -66,10 +66,13 @@
             this.chatBox = new System.Windows.Forms.ListBox();
             this.txt_Mess = new System.Windows.Forms.TextBox();
             this.btn_Send = new System.Windows.Forms.Button();
-            this.board = new Caro.CaroBoardUI();
             this.lblName = new System.Windows.Forms.Label();
             this.btnChange = new System.Windows.Forms.Button();
             this.tbName = new System.Windows.Forms.TextBox();
+            this.modeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.board = new Caro.CaroBoardUI();
+            this.withHumanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.withComputerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.op_trackComputerLevel)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -83,7 +86,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gameToolStripMenuItem,
             this.commandToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.helpToolStripMenuItem,
+            this.modeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(809, 24);
@@ -400,18 +404,17 @@
             // chatBox
             // 
             this.chatBox.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.chatBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chatBox.ColumnWidth = 50;
+            this.chatBox.Font = new System.Drawing.Font("Arial", 10F);
             this.chatBox.FormattingEnabled = true;
             this.chatBox.HorizontalExtent = 50;
             this.chatBox.HorizontalScrollbar = true;
-            this.chatBox.ItemHeight = 14;
-            this.chatBox.Items.AddRange(new object[] {
-            "đă",
-            "FFFFFFFFFFFFFFFFFFF"});
+            this.chatBox.ItemHeight = 16;
             this.chatBox.Location = new System.Drawing.Point(525, 79);
             this.chatBox.Name = "chatBox";
             this.chatBox.ScrollAlwaysVisible = true;
-            this.chatBox.Size = new System.Drawing.Size(281, 256);
+            this.chatBox.Size = new System.Drawing.Size(281, 244);
             this.chatBox.TabIndex = 5;
             // 
             // txt_Mess
@@ -439,17 +442,6 @@
             this.btn_Send.Text = "Send";
             this.btn_Send.UseVisualStyleBackColor = false;
             this.btn_Send.Click += new System.EventHandler(this.btn_Send_Click);
-            // 
-            // board
-            // 
-            this.board.BackColor = System.Drawing.Color.White;
-            this.board.Location = new System.Drawing.Point(12, 52);
-            this.board.MaximumSize = new System.Drawing.Size(476, 540);
-            this.board.MinimumSize = new System.Drawing.Size(476, 540);
-            this.board.Name = "board";
-            this.board.Size = new System.Drawing.Size(476, 540);
-            this.board.TabIndex = 0;
-            this.board.Load += new System.EventHandler(this.board_Load);
             // 
             // lblName
             // 
@@ -483,6 +475,40 @@
             this.tbName.Size = new System.Drawing.Size(146, 23);
             this.tbName.TabIndex = 10;
             this.tbName.Text = "Player";
+            // 
+            // modeToolStripMenuItem
+            // 
+            this.modeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.withHumanToolStripMenuItem,
+            this.withComputerToolStripMenuItem});
+            this.modeToolStripMenuItem.Name = "modeToolStripMenuItem";
+            this.modeToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.modeToolStripMenuItem.Text = "Mode";
+            // 
+            // board
+            // 
+            this.board.BackColor = System.Drawing.Color.White;
+            this.board.Location = new System.Drawing.Point(12, 52);
+            this.board.MaximumSize = new System.Drawing.Size(476, 540);
+            this.board.MinimumSize = new System.Drawing.Size(476, 540);
+            this.board.Name = "board";
+            this.board.Size = new System.Drawing.Size(476, 540);
+            this.board.TabIndex = 0;
+            this.board.Load += new System.EventHandler(this.board_Load);
+            // 
+            // withHumanToolStripMenuItem
+            // 
+            this.withHumanToolStripMenuItem.Name = "withHumanToolStripMenuItem";
+            this.withHumanToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.withHumanToolStripMenuItem.Text = "With human";
+            this.withHumanToolStripMenuItem.Click += new System.EventHandler(this.withHumanToolStripMenuItem_Click);
+            // 
+            // withComputerToolStripMenuItem
+            // 
+            this.withComputerToolStripMenuItem.Name = "withComputerToolStripMenuItem";
+            this.withComputerToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.withComputerToolStripMenuItem.Text = "With computer";
+            this.withComputerToolStripMenuItem.Click += new System.EventHandler(this.withComputerToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -568,6 +594,9 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnChange;
         private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.ToolStripMenuItem modeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem withHumanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem withComputerToolStripMenuItem;
 
     }
 }
