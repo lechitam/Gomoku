@@ -91,3 +91,16 @@ E:\K15\Win\Caro\Caro\obj\x86\Release\Caro.Options.resources
 E:\K15\Win\Caro\Caro\obj\x86\Release\Caro.Properties.Resources.resources
 E:\K15\Win\Caro\Caro\obj\x86\Release\Caro.csproj.GenerateResource.Cache
 E:\K15\Win\Caro\Caro\obj\x86\Release\Caro.ChatBoxShow.resources
+E:\K15\Win\GitHub_Gomoku\Caro_3\Caro\obj\x86\Release\Caro.exe
+E:\K15\Win\GitHub_Gomoku\Caro_3\Caro\obj\x86\Release\Caro.pdb
+E:\K15\Win\GitHub_Gomoku\Caro_3\Caro\obj\x86\Release\Caro.csprojResolveAssemblyReference.cache
+E:\K15\Win\GitHub_Gomoku\Caro_3\Caro\obj\x86\Release\Caro.CaroBoardUI.resources
+E:\K15\Win\GitHub_Gomoku\Caro_3\Caro\obj\x86\Release\Caro.ChatBoxShow.resources
+E:\K15\Win\GitHub_Gomoku\Caro_3\Caro\obj\x86\Release\Caro.Main.resources
+E:\K15\Win\GitHub_Gomoku\Caro_3\Caro\obj\x86\Release\Caro.Options.resources
+E:\K15\Win\GitHub_Gomoku\Caro_3\Caro\obj\x86\Release\Caro.Properties.Resources.resources
+E:\K15\Win\GitHub_Gomoku\Caro_3\Caro\obj\x86\Release\Caro.csproj.GenerateResource.Cache
+E:\K15\Win\GitHub_Gomoku\Caro_3\Caro\bin\Release\Caro.exe
+E:\K15\Win\GitHub_Gomoku\Caro_3\Caro\bin\Release\Caro.pdb
+E:\K15\Win\GitHub_Gomoku\Caro_3\Caro\bin\Release\CaroLibrary.dll
+E:\K15\Win\GitHub_Gomoku\Caro_3\Caro\bin\Release\CaroLibrary.pdb

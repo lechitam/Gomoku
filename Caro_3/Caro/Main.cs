@@ -265,12 +265,13 @@ namespace Caro
             //ChatBoxShow chatMess = new ChatBoxShow(playerName, txt_Mess.Text);
           if (txt_Mess.Text != "")
           { 
-              chatBox.Items.Add("hi");
-                ChatBoxShow chatMess = new ChatBoxShow(playerName, txt_Mess.Text);
+              //chatBox.Items.Add("hi");
+               // ChatBoxShow chatMess = new ChatBoxShow(playerName, txt_Mess.Text, DateTime.Now);
                // CaroBoardUI caro = new CaroBoardUI();
 
-                chatBox.Items.Add(chatMess);
-                //chatBox.Items.Add(caro);
+               // chatBox.Items.Add(chatMess);
+             chatBox.Items.Add( playerName + " (" + DateTime.Now.ToString() + ") :" + txt_Mess.Text);
+            
               
             }
         }
@@ -282,6 +283,11 @@ namespace Caro
                 txt_Mess.Text = "";
                 txt_Mess.ForeColor = Color.Black;
             }
+        }
+
+        private void btnChange_Click(object sender, EventArgs e)
+        {
+            playerName = tbName.Text;
         }
 
        

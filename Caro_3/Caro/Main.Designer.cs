@@ -32,9 +32,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.commandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetScoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.op_comboFirstPlayer = new System.Windows.Forms.ComboBox();
             this.op_comboGameLaw = new System.Windows.Forms.ComboBox();
@@ -42,31 +50,26 @@
             this.op_trackComputerLevel = new System.Windows.Forms.TrackBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.ResetScores = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.chatBox = new System.Windows.Forms.ListBox();
             this.txt_Mess = new System.Windows.Forms.TextBox();
             this.btn_Send = new System.Windows.Forms.Button();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.ResetScores = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.resetScoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.board = new Caro.CaroBoardUI();
+            this.lblName = new System.Windows.Forms.Label();
+            this.btnChange = new System.Windows.Forms.Button();
+            this.tbName = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.op_trackComputerLevel)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -98,7 +101,41 @@
             this.gameToolStripMenuItem.Name = "gameToolStripMenuItem";
             this.gameToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.gameToolStripMenuItem.Text = "&Game";
-           // this.gameToolStripMenuItem.Click += new System.EventHandler(this.gameToolStripMenuItem_Click);
+            // 
+            // newGameToolStripMenuItem
+            // 
+            this.newGameToolStripMenuItem.Image = global::Caro.Properties.Resources.game_pad1;
+            this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
+            this.newGameToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.newGameToolStripMenuItem.Text = "&New game";
+            this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
+            // 
+            // loadGameToolStripMenuItem
+            // 
+            this.loadGameToolStripMenuItem.Image = global::Caro.Properties.Resources.openHS;
+            this.loadGameToolStripMenuItem.Name = "loadGameToolStripMenuItem";
+            this.loadGameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
+            this.loadGameToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.loadGameToolStripMenuItem.Text = "&Load game...";
+            this.loadGameToolStripMenuItem.Click += new System.EventHandler(this.loadGameToolStripMenuItem_Click);
+            // 
+            // saveGameToolStripMenuItem
+            // 
+            this.saveGameToolStripMenuItem.Image = global::Caro.Properties.Resources.saveHS;
+            this.saveGameToolStripMenuItem.Name = "saveGameToolStripMenuItem";
+            this.saveGameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.saveGameToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.saveGameToolStripMenuItem.Text = "&Save game";
+            this.saveGameToolStripMenuItem.Click += new System.EventHandler(this.saveGameToolStripMenuItem_Click);
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.Image = global::Caro.Properties.Resources.PageSetup;
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.optionsToolStripMenuItem.Text = "&Options...";
+            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -118,6 +155,32 @@
             this.commandToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.commandToolStripMenuItem.Text = "&Command";
             // 
+            // undoToolStripMenuItem
+            // 
+            this.undoToolStripMenuItem.Image = global::Caro.Properties.Resources.Edit_UndoHS;
+            this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
+            this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.undoToolStripMenuItem.Text = "&Undo";
+            this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
+            // 
+            // redoToolStripMenuItem
+            // 
+            this.redoToolStripMenuItem.Image = global::Caro.Properties.Resources.Edit_RedoHS;
+            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
+            this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.redoToolStripMenuItem.Text = "&Redo";
+            this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
+            // 
+            // resetScoresToolStripMenuItem
+            // 
+            this.resetScoresToolStripMenuItem.Image = global::Caro.Properties.Resources.reset_scores;
+            this.resetScoresToolStripMenuItem.Name = "resetScoresToolStripMenuItem";
+            this.resetScoresToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.resetScoresToolStripMenuItem.Text = "Re&set scores";
+            this.resetScoresToolStripMenuItem.Click += new System.EventHandler(this.resetScoresToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -126,6 +189,15 @@
             this.helpToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "&Help";
+            // 
+            // helpToolStripMenuItem1
+            // 
+            this.helpToolStripMenuItem1.Image = global::Caro.Properties.Resources.Help;
+            this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
+            this.helpToolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(118, 22);
+            this.helpToolStripMenuItem1.Text = "&Help";
+            this.helpToolStripMenuItem1.Click += new System.EventHandler(this.helpToolStripMenuItem1_Click);
             // 
             // timer1
             // 
@@ -217,70 +289,6 @@
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.Filter = "Caro game data files|*.caro";
-            // 
-            // saveFileDialog1
-            // 
-            this.saveFileDialog1.Filter = "Caro game data files|*.caro";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(525, 83);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(281, 298);
-            this.dataGridView1.TabIndex = 4;
-            // 
-            // chatBox
-            // 
-            this.chatBox.ColumnWidth = 50;
-            this.chatBox.FormattingEnabled = true;
-            this.chatBox.HorizontalExtent = 50;
-            this.chatBox.HorizontalScrollbar = true;
-            this.chatBox.ItemHeight = 14;
-            this.chatBox.Location = new System.Drawing.Point(525, 79);
-            this.chatBox.Name = "chatBox";
-            this.chatBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.chatBox.Size = new System.Drawing.Size(281, 256);
-            this.chatBox.TabIndex = 5;
-            // 
-            // txt_Mess
-            // 
-            this.txt_Mess.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Mess.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txt_Mess.Location = new System.Drawing.Point(534, 342);
-            this.txt_Mess.Name = "txt_Mess";
-            this.txt_Mess.Size = new System.Drawing.Size(176, 22);
-            this.txt_Mess.TabIndex = 6;
-            this.txt_Mess.Text = "Type your message...";
-            this.txt_Mess.TextChanged += new System.EventHandler(this.txt_Mess_TextChanged);
-            this.txt_Mess.MouseDown += new System.Windows.Forms.MouseEventHandler(this.txt_Mess_MouseDown);
-            // 
-            // btn_Send
-            // 
-            this.btn_Send.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btn_Send.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Send.Location = new System.Drawing.Point(733, 339);
-            this.btn_Send.Name = "btn_Send";
-            this.btn_Send.Size = new System.Drawing.Size(59, 23);
-            this.btn_Send.TabIndex = 7;
-            this.btn_Send.Text = "Send";
-            this.btn_Send.UseVisualStyleBackColor = false;
-            this.btn_Send.Click += new System.EventHandler(this.btn_Send_Click);
-            // 
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -321,6 +329,11 @@
             this.toolStripButton7.Text = "Option";
             this.toolStripButton7.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // ResetScores
             // 
             this.ResetScores.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -351,6 +364,11 @@
             this.toolStripButton5.Text = "Redo";
             this.toolStripButton5.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
             // toolStripButton6
             // 
             this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -361,75 +379,66 @@
             this.toolStripButton6.Text = "Help";
             this.toolStripButton6.Click += new System.EventHandler(this.helpToolStripMenuItem1_Click);
             // 
-            // newGameToolStripMenuItem
+            // openFileDialog1
             // 
-            this.newGameToolStripMenuItem.Image = global::Caro.Properties.Resources.game_pad1;
-            this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.newGameToolStripMenuItem.Text = "&New game";
-            this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
+            this.openFileDialog1.Filter = "Caro game data files|*.caro";
             // 
-            // loadGameToolStripMenuItem
+            // saveFileDialog1
             // 
-            this.loadGameToolStripMenuItem.Image = global::Caro.Properties.Resources.openHS;
-            this.loadGameToolStripMenuItem.Name = "loadGameToolStripMenuItem";
-            this.loadGameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.loadGameToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.loadGameToolStripMenuItem.Text = "&Load game...";
-            this.loadGameToolStripMenuItem.Click += new System.EventHandler(this.loadGameToolStripMenuItem_Click);
+            this.saveFileDialog1.Filter = "Caro game data files|*.caro";
             // 
-            // saveGameToolStripMenuItem
+            // dataGridView1
             // 
-            this.saveGameToolStripMenuItem.Image = global::Caro.Properties.Resources.saveHS;
-            this.saveGameToolStripMenuItem.Name = "saveGameToolStripMenuItem";
-            this.saveGameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveGameToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.saveGameToolStripMenuItem.Text = "&Save game";
-            this.saveGameToolStripMenuItem.Click += new System.EventHandler(this.saveGameToolStripMenuItem_Click);
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(525, 83);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(281, 298);
+            this.dataGridView1.TabIndex = 4;
             // 
-            // optionsToolStripMenuItem
+            // chatBox
             // 
-            this.optionsToolStripMenuItem.Image = global::Caro.Properties.Resources.PageSetup;
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.optionsToolStripMenuItem.Text = "&Options...";
-            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
+            this.chatBox.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.chatBox.ColumnWidth = 50;
+            this.chatBox.FormattingEnabled = true;
+            this.chatBox.HorizontalExtent = 50;
+            this.chatBox.HorizontalScrollbar = true;
+            this.chatBox.ItemHeight = 14;
+            this.chatBox.Items.AddRange(new object[] {
+            "đă",
+            "FFFFFFFFFFFFFFFFFFF"});
+            this.chatBox.Location = new System.Drawing.Point(525, 79);
+            this.chatBox.Name = "chatBox";
+            this.chatBox.ScrollAlwaysVisible = true;
+            this.chatBox.Size = new System.Drawing.Size(281, 256);
+            this.chatBox.TabIndex = 5;
             // 
-            // undoToolStripMenuItem
+            // txt_Mess
             // 
-            this.undoToolStripMenuItem.Image = global::Caro.Properties.Resources.Edit_UndoHS;
-            this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.undoToolStripMenuItem.Text = "&Undo";
-            this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
+            this.txt_Mess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_Mess.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Mess.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txt_Mess.Location = new System.Drawing.Point(534, 342);
+            this.txt_Mess.Name = "txt_Mess";
+            this.txt_Mess.Size = new System.Drawing.Size(176, 22);
+            this.txt_Mess.TabIndex = 6;
+            this.txt_Mess.Text = "Type your message...";
+            this.txt_Mess.TextChanged += new System.EventHandler(this.txt_Mess_TextChanged);
+            this.txt_Mess.MouseDown += new System.Windows.Forms.MouseEventHandler(this.txt_Mess_MouseDown);
             // 
-            // redoToolStripMenuItem
+            // btn_Send
             // 
-            this.redoToolStripMenuItem.Image = global::Caro.Properties.Resources.Edit_RedoHS;
-            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.redoToolStripMenuItem.Text = "&Redo";
-            this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
-            // 
-            // resetScoresToolStripMenuItem
-            // 
-            this.resetScoresToolStripMenuItem.Image = global::Caro.Properties.Resources.reset_scores;
-            this.resetScoresToolStripMenuItem.Name = "resetScoresToolStripMenuItem";
-            this.resetScoresToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.resetScoresToolStripMenuItem.Text = "Re&set scores";
-            this.resetScoresToolStripMenuItem.Click += new System.EventHandler(this.resetScoresToolStripMenuItem_Click);
-            // 
-            // helpToolStripMenuItem1
-            // 
-            this.helpToolStripMenuItem1.Image = global::Caro.Properties.Resources.Help;
-            this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(118, 22);
-            this.helpToolStripMenuItem1.Text = "&Help";
-            this.helpToolStripMenuItem1.Click += new System.EventHandler(this.helpToolStripMenuItem1_Click);
+            this.btn_Send.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Send.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_Send.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Send.Location = new System.Drawing.Point(733, 339);
+            this.btn_Send.Name = "btn_Send";
+            this.btn_Send.Size = new System.Drawing.Size(59, 23);
+            this.btn_Send.TabIndex = 7;
+            this.btn_Send.Text = "Send";
+            this.btn_Send.UseVisualStyleBackColor = false;
+            this.btn_Send.Click += new System.EventHandler(this.btn_Send_Click);
             // 
             // board
             // 
@@ -442,6 +451,39 @@
             this.board.TabIndex = 0;
             this.board.Load += new System.EventHandler(this.board_Load);
             // 
+            // lblName
+            // 
+            this.lblName.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.lblName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(521, 56);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(44, 20);
+            this.lblName.TabIndex = 8;
+            this.lblName.Text = "Name";
+            // 
+            // btnChange
+            // 
+            this.btnChange.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChange.Location = new System.Drawing.Point(716, 57);
+            this.btnChange.Name = "btnChange";
+            this.btnChange.Size = new System.Drawing.Size(75, 23);
+            this.btnChange.TabIndex = 9;
+            this.btnChange.Text = "Change";
+            this.btnChange.UseVisualStyleBackColor = true;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
+            // 
+            // tbName
+            // 
+            this.tbName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbName.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbName.Location = new System.Drawing.Point(564, 57);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(146, 23);
+            this.tbName.TabIndex = 10;
+            this.tbName.Text = "Player";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -449,6 +491,9 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(809, 588);
+            this.Controls.Add(this.tbName);
+            this.Controls.Add(this.btnChange);
+            this.Controls.Add(this.lblName);
             this.Controls.Add(this.btn_Send);
             this.Controls.Add(this.txt_Mess);
             this.Controls.Add(this.chatBox);
@@ -520,6 +565,9 @@
         private System.Windows.Forms.ListBox chatBox;
         private System.Windows.Forms.TextBox txt_Mess;
         private System.Windows.Forms.Button btn_Send;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Button btnChange;
+        private System.Windows.Forms.TextBox tbName;
 
     }
 }

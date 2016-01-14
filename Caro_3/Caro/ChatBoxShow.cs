@@ -17,6 +17,7 @@ namespace Caro
             set { playerName = value; }
         }
         private string message;
+        private DateTime time;
 
         public string Message
         {
@@ -28,15 +29,19 @@ namespace Caro
             InitializeComponent();
         }
 
-        public ChatBoxShow(string playerName, string message)
+        public ChatBoxShow(string playerName, string message,DateTime time)
         {
               
             InitializeComponent();
             this.playerName = playerName;
-            lblName.Text = playerName;
+           lblName.Text = playerName;
             
             this.message = message;
             lblContent.Text = message;
+
+            this.time = time;
+            lblTime.Text = time.ToString();
+
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
